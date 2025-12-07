@@ -19,6 +19,18 @@
     --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
+.logo-img {
+    height: 60px;
+    width: auto;
+    display: block;
+}
+
+/* Optional: Add hover effect */
+.logo-img:hover {
+    opacity: 0.8;
+    transition: var(--transition);
+}
+
 /* Reset & Base Styles */
 * {
     margin: 0;
