@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Scroll Animation (Simple Intersection Observer)
+    // Scroll Animation (Intersection Observer)
     const observerOptions = {
         threshold: 0.1
     };
@@ -59,7 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in-up');
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
                 observer.unobserve(entry.target);
             }
         });
@@ -71,15 +72,5 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
         observer.observe(el);
-    });
-
-    // Add class for animation when in view
-    document.addEventListener('scroll', () => {
-        animateElements.forEach(el => {
-            if (el.classList.contains('fade-in-up')) {
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
-            }
-        });
     });
 });
